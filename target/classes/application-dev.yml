@@ -1,0 +1,102 @@
+spring:
+  application:
+    name: FR-Blog
+  cache:
+    cache-names: ehcache
+    ehcache:
+      config: ehcache.xml
+  devtools:
+    restart:
+      enabled: true
+  freemarker:
+    enabled: true
+    cache: false
+    suffix: .ftl
+    charset: utf-8
+    ######## todo 发布版本时同步更新 ***-prod.yml ########
+    view-names: index,
+                error,
+                userlogin,
+                adminlogin,
+                register,
+                article,
+                posts,
+                resume,
+                admin/index,
+                admin/userlogin,
+                admin/blogadd,
+                admin/blog_manage,
+                admin/blog_modify,
+                admin/admin_user_manage,
+                admin/admin_user_pwd_modify,
+                admin/resume_modify
+    #####################################
+    content-type: text/html
+    allow-request-override: true
+    check-template-location: true
+    expose-request-attributes: true
+    expose-session-attributes: true
+    expose-spring-macro-helpers: true
+    request-context-attribute: request
+    template-loader-path: classpath:/templates/
+  resources:
+    chain:
+      strategy:
+        content:
+          enabled: true
+          paths: /**
+        fixed:
+          enabled: true
+          paths: /js/lib
+          version: v12
+    static-locations: classpath:/static/,classpath:/META-INF/resources/,classpath:/resources/,classpath:/public/
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    username: root
+    password: zpx1121.
+    url: jdbc:mysql://47.103.20.158:3306/fsblog?useUnicode=true&characterEncoding=utf8
+
+    driverClassName: com.mysql.jdbc.Driver
+    sql-script-encoding: UTF-8
+    hikari:
+      connection-timeout: 30000
+      maximum-pool-size: 50
+      minimum-idle: 5
+    schema: classpath:schema.sql
+    data: classpath:data.sql
+    initialize: false
+    continue-on-error: true
+    jpa:
+      hibernate:
+        ddl-auto: none
+
+server:
+  port: 8080
+  max-http-header-size: 8192
+  compression:
+      min-response-size: 512
+      enabled: true
+      mime-types: text/html,text/css,text/javascript,application/javascript,image/gif,image/png,image/jpg
+#  ssl:
+#      key-store: classpath:2878067_www.zpxblogs.com.pfx
+#      key-store-password: qHGV5z0z
+#      key-store-type: PKCS12
+  tomcat:
+        maxThreads: 12
+        minSpareThreads: 3
+        accesslog:
+#          线上环境
+#          directory: /project/logs/app
+          directory: /Users/zpx/Desktop/工作/log/app/
+          pattern: combined
+          enabled: true
+  session:
+    cookie:
+      max-age: 1800
+
+logging:
+    config: classpath:log4j2.xml
+
+mybatis:
+    type-aliases-package: me.zbl.fullstack.entity
+    mapper-locations: classpath:mapping/*.xml
