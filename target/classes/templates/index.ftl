@@ -16,6 +16,13 @@
 
 <#-- CSS -->
 <#include "public/front_css.ftl">
+
+<#-- s-footer -->
+<#include "public/footer.ftl">
+<#-- e-footer -->
+
+<#-- JS -->
+<#include "public/front_js.ftl">
 </head>
 
 <body>
@@ -37,19 +44,23 @@
         }
 
         .image_div{
-            width:100%;
-            text-align:center;
+            margin-top: -30px;
+            width:90%;
+            margin-left: 5%;
+            margin-bottom: -30px;
         }
 
         .image_ul{
+           padding-left: 30px;
             display:inline-block;
+
         }
 
         .image_li{
             float:left;
-            width:200px;
-            height:200px;
-            margin:10px 5%;
+            width:110px;
+            height:110px;
+            margin:10px 6%;
             -webkit-border-radius: 10px;
             -moz-border-radius: 10px;
             -o-border-radius: 10px;
@@ -78,19 +89,24 @@
         }
 
         .image_div{
-            width:100%;
-            text-align:center;
+            margin-top: -30px;
+            width:90%;
+            margin-left: 5%;
+            margin-bottom: -30px;
         }
 
         .image_ul{
             /*display:inline-block;*/
+            /*position:absolute;*/
         }
 
         .image_li{
+            width: 14%;
+            height: 12vw;
             float:left;
-            width:200px;
-            height:200px;
-            margin:10px 1%;
+            /*width:200px;*/
+            /*height:200px;*/
+            margin:10px 1.3%;
             -webkit-border-radius: 10px;
             -moz-border-radius: 10px;
             -o-border-radius: 10px;
@@ -162,15 +178,37 @@
 <section class="py-5" style="background-color: rgba(16,15,15,0.6);" >
     <div class="image_div">
         <ul class="image_ul">
-            <li class="image_li" style="background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576141178439&di=43de955548176f91974d9a71d1d6269d&imgtype=0&src=http%3A%2F%2Fwww.15605.net%2Fueditor%2Fphp%2Fupload%2Fimage%2F20190401%2F1554096231284086.jpg');background-size: 100%;"></li>
-            <li class="image_li" style="background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576141178439&di=d560270f256576d19cdeb044be050c50&imgtype=0&src=http%3A%2F%2Fimage1.qianqianhua.com%2Fuploads%2F20180519%2F02%2F1526668502-PcsuFyhbDz.jpg');background-size: 100%"></li>
-            <li class="image_li" style="background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576143482942&di=a5e06b56739266cc55e5d24f01eea347&imgtype=0&src=http%3A%2F%2Fimg.taopic.com%2Fuploads%2Fallimg%2F120825%2F214833-120R5191Q448.jpg');background-size: 100%"></li>
-            <li class="image_li" style="background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576143210149&di=9d45cb80636b33c810c1b2fbcf924426&imgtype=0&src=http%3A%2F%2Fattach.bbs.miui.com%2Fforum%2F201301%2F05%2F005020v3z3etzfv4rktf3k.jpg');background-size: 100%"></li>
-            <li class="image_li" style="background-image: url('https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2480469743,1548081758&fm=15&gp=0.jpg');background-size: 100%"></li>
-            <li class="image_li" style="background-image: url('https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2498426484,1366561395&fm=15&gp=0.jpg');background-size: 100%"></li>
+            <li class="image_li" onmousemove="updateColor(this)"  onmouseout="updateColor1(this)"  style="background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576141178439&di=43de955548176f91974d9a71d1d6269d&imgtype=0&src=http%3A%2F%2Fwww.15605.net%2Fueditor%2Fphp%2Fupload%2Fimage%2F20190401%2F1554096231284086.jpg');background-size: 100%;"></li>
+            <li class="image_li"  onmousemove="updateColor(this)"  onmouseout="updateColor1(this)" style="background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576141178439&di=d560270f256576d19cdeb044be050c50&imgtype=0&src=http%3A%2F%2Fimage1.qianqianhua.com%2Fuploads%2F20180519%2F02%2F1526668502-PcsuFyhbDz.jpg');background-size: 100%"></li>
+            <li class="image_li"  onmousemove="updateColor(this)"  onmouseout="updateColor1(this)" style="background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576143482942&di=a5e06b56739266cc55e5d24f01eea347&imgtype=0&src=http%3A%2F%2Fimg.taopic.com%2Fuploads%2Fallimg%2F120825%2F214833-120R5191Q448.jpg');background-size: 100%"></li>
+            <li class="image_li"  onmousemove="updateColor(this)"  onmouseout="updateColor1(this)" style="background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576143210149&di=9d45cb80636b33c810c1b2fbcf924426&imgtype=0&src=http%3A%2F%2Fattach.bbs.miui.com%2Fforum%2F201301%2F05%2F005020v3z3etzfv4rktf3k.jpg');background-size: 100%"></li>
+            <li class="image_li"  onmousemove="updateColor(this)"  onmouseout="updateColor1(this)" style="background-image: url('https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2480469743,1548081758&fm=15&gp=0.jpg');background-size: 100%"></li>
+            <li class="image_li"  onmousemove="updateColor(this)"  onmouseout="updateColor1(this)" style="background-image: url('https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2498426484,1366561395&fm=15&gp=0.jpg');background-size: 100%"></li>
         </ul>
-    </div>
+        <script  type="text/javascript">
+            // $(document).ready(function(){
+            //      //alert("dasdas");
+            //     $(this).find('.image_li').mouseover(function(){
+            //         $(this).find('.image_li').css({"background":"yellow","z-index":"9999"})
+            //         alert("asd");
+            //     });
+            // });
+            function updateColor(sub) {
+               sub.style.zIndex="999";
+               sub.style.opacity="0.4";
 
+            };
+            function updateColor1(sub) {
+                sub.style.zIndex="999";
+                sub.style.opacity="1";
+
+            };
+
+        </script>
+
+
+
+    </div>
 </section>
 
 <!-- Page Content -->
@@ -180,11 +218,6 @@
     </div>
 </section>
 
-<#-- s-footer -->
-<#include "public/footer.ftl">
-<#-- e-footer -->
 
-<#-- JS -->
-<#include "public/front_js.ftl">
 </body>
 </html>
