@@ -17,9 +17,7 @@
 <#-- CSS -->
 <#include "public/front_css.ftl">
 
-<#-- s-footer -->
-<#include "public/footer.ftl">
-<#-- e-footer -->
+
 
 <#-- JS -->
 <#include "public/front_js.ftl">
@@ -67,6 +65,8 @@
             border-radius: 10px;
             cursor:pointer;
             list-style-type:none;
+            overflow:hidden;
+            /*background-size: 100%*/
         }
 
     }
@@ -96,8 +96,7 @@
         }
 
         .image_ul{
-            /*display:inline-block;*/
-            /*position:absolute;*/
+            padding-left: 0px;
         }
 
         .image_li{
@@ -113,9 +112,30 @@
             border-radius: 10px;
             cursor:pointer;
             list-style-type:none;
+            overflow:hidden;
+            background-size: 100%
         }
-
     }
+
+    .image_img{
+        width: 100%;
+        height: 100%;
+        top: 0;
+        position: relative;
+        left: 0;
+        -webkit-transition: -webkit-transform 0.3s;
+        -moz-transition: -moz-transform 0.3s;
+        -o-transition: -o-transform 0.3s;
+        transition: transform 0.3s;
+    }
+    .image_img:hover{
+        -webkit-transform: scale(1.5);
+        -moz-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+        -o-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+
 
 
 
@@ -134,7 +154,7 @@
             <li data-target="#slideIndicators" data-slide-to="1"></li>
             <li data-target="#slideIndicators" data-slide-to="2"></li>
         </ol>
-        <div class="txt_shadow" id="fontSizeId" style="color: #ffffff;position: absolute;top: 15%;z-index: 5;width: 100%;text-align:center;opacity: 0.7" > 人生如画，岁月如歌</div>
+        <div class="txt_shadow" id="fontSizeId" style="color: #fdfffd;position: absolute;top: 15%;z-index: 5;width: 100%;text-align:center;opacity: 0.7" > 人生如画，岁月如歌</div>
         <div class="carousel-inner" role="listbox">
 
             <!-- Slide One - Set the background image for this slide in the line below -->
@@ -147,7 +167,7 @@
             </div>
             <!-- Slide Two - Set the background image for this slide in the line below -->
             <div class="carousel-item"
-                 style="background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567448084025&di=1a42f6dfeb3b930ac820b9f7bf9c2a5f&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F8%2F57eb323138b89.jpg')">
+                 style="background-image: url('http://ppe.oss-cn-shenzhen.aliyuncs.com/palette/133331/1575112215532/thumb_Sat_Nov_30_2019.jpg')">
             <div class="carousel-caption d-none d-md-block">
                     <h3 class="txt_shadow">路漫漫其修远兮，吾将上下而求索。</h3>
                     <p class="txt_shadow">The way ahead is so long without ending, yet high and low I'll search with my will unbending. </p>
@@ -155,7 +175,7 @@
             </div>
             <!-- Slide Three - Set the background image for this slide in the line below -->
             <div class="carousel-item"
-                 style="background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567447869170&di=c032edbb1cbd5dd5450c84e6a3bf4455&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F6%2F580487e53454e.jpg')">
+                 style="background-image: url('https://cdn.pixabay.com/photo/2016/11/22/21/47/architecture-1850732_1280.jpg')">
                 <div class="carousel-caption d-none d-md-block">
                     <h3 class="txt_shadow">你们中大多数人都熟悉程序员的美德，有三种：那就是懒惰、急躁和傲慢</h3>
                     <p class="txt_shadow">Most of you are familiar with the programmer's virtues, and there are three: laziness,
@@ -178,32 +198,35 @@
 <section class="py-5" style="background-color: rgba(16,15,15,0.6);" >
     <div class="image_div">
         <ul class="image_ul">
-            <li class="image_li" onmousemove="updateColor(this)"  onmouseout="updateColor1(this)"  style="background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576141178439&di=43de955548176f91974d9a71d1d6269d&imgtype=0&src=http%3A%2F%2Fwww.15605.net%2Fueditor%2Fphp%2Fupload%2Fimage%2F20190401%2F1554096231284086.jpg');background-size: 100%;"></li>
-            <li class="image_li"  onmousemove="updateColor(this)"  onmouseout="updateColor1(this)" style="background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576141178439&di=d560270f256576d19cdeb044be050c50&imgtype=0&src=http%3A%2F%2Fimage1.qianqianhua.com%2Fuploads%2F20180519%2F02%2F1526668502-PcsuFyhbDz.jpg');background-size: 100%"></li>
-            <li class="image_li"  onmousemove="updateColor(this)"  onmouseout="updateColor1(this)" style="background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576143482942&di=a5e06b56739266cc55e5d24f01eea347&imgtype=0&src=http%3A%2F%2Fimg.taopic.com%2Fuploads%2Fallimg%2F120825%2F214833-120R5191Q448.jpg');background-size: 100%"></li>
-            <li class="image_li"  onmousemove="updateColor(this)"  onmouseout="updateColor1(this)" style="background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576143210149&di=9d45cb80636b33c810c1b2fbcf924426&imgtype=0&src=http%3A%2F%2Fattach.bbs.miui.com%2Fforum%2F201301%2F05%2F005020v3z3etzfv4rktf3k.jpg');background-size: 100%"></li>
-            <li class="image_li"  onmousemove="updateColor(this)"  onmouseout="updateColor1(this)" style="background-image: url('https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2480469743,1548081758&fm=15&gp=0.jpg');background-size: 100%"></li>
-            <li class="image_li"  onmousemove="updateColor(this)"  onmouseout="updateColor1(this)" style="background-image: url('https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2498426484,1366561395&fm=15&gp=0.jpg');background-size: 100%"></li>
+            <li class="image_li"    >
+                <img class="image_img" src="https://cdn.pixabay.com/photo/2016/12/07/23/41/winter-1890653_1280.jpg"/>
+            </li>
+            <li class="image_li"    >
+                <img class="image_img" src="https://cdn.pixabay.com/photo/2015/01/10/10/50/road-595101_1280.jpg"/>
+            </li>
+            <li class="image_li"    >
+                <img class="image_img" src="https://cdn.pixabay.com/photo/2019/11/17/16/45/windrader-4632839_1280.jpg"/>
+            </li>
+            <li class="image_li"    >
+                <img class="image_img" src="https://cdn.pixabay.com/photo/2015/02/03/07/52/winter-622126_1280.jpg"/>
+            </li>
+            <li class="image_li"    >
+                <img class="image_img" src="https://cdn.pixabay.com/photo/2017/08/03/14/55/perspective-2576685_1280.jpg"/>
+            </li>
+            <li class="image_li"    >
+                <img class="image_img" src="https://cdn.pixabay.com/photo/2019/10/07/14/00/mountain-4532686_1280.jpg"/>
+            </li>
         </ul>
         <script  type="text/javascript">
-            // $(document).ready(function(){
-            //      //alert("dasdas");
-            //     $(this).find('.image_li').mouseover(function(){
-            //         $(this).find('.image_li').css({"background":"yellow","z-index":"9999"})
-            //         alert("asd");
-            //     });
-            // });
-            function updateColor(sub) {
-               sub.style.zIndex="999";
-               sub.style.opacity="0.4";
-
-            };
-            function updateColor1(sub) {
-                sub.style.zIndex="999";
-                sub.style.opacity="1";
-
-            };
-
+            $(document).ready(function(){
+                 //alert("dasdas");
+                $('.image_li>.image_img').mouseover(function(){
+                    $(this).css({"opacity":"0.4","z-index":"9999"})
+                });
+                $('.image_li>.image_img').mouseout(function () {
+                    $(this).css({"opacity":"1","z-index":"9999"})
+                });
+            });
         </script>
 
 
@@ -218,6 +241,9 @@
     </div>
 </section>
 
+<#-- s-footer -->
+<#include "public/footer.ftl">
+<#-- e-footer -->
 
 </body>
 </html>
