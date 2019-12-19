@@ -55,7 +55,7 @@ public class UserController extends BaseController {
    * 表单提交
    */
   @PostMapping("/userregister.f")
-  public String fFrontUserRegister(@Valid UserRegisterForm registerForm, BindingResult bindingResult, HttpServletRequest request, Model model, User user) {
+  public String fFrontUserRegister(@Valid UserRegisterForm registerForm, BindingResult bindingResult, HttpServletRequest request, Model model, User user) throws Exception {
     if (bindingResult.hasErrors()) {
       List<ObjectError> errors = bindingResult.getAllErrors();
       return "redirect:/userregister";
@@ -69,6 +69,7 @@ public class UserController extends BaseController {
       return "redirect:/userregister";
     }
     mUserService.insertUser(user);
+    addModelAtt(model, VIEW_MSG, "注册成功");
     //跳转登录
     return "redirect:/userlogin";
   }

@@ -21,6 +21,7 @@ spring:
                 register,
                 article,
                 posts,
+                chat,
                 resume,
                 admin/index,
                 admin/userlogin,

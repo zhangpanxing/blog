@@ -17,6 +17,7 @@
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin/sb-admin.css" rel="stylesheet">
+
 </head>
 
 <body class="bg-dark">
@@ -49,7 +50,7 @@
               </div>
             </div>
           </div>
-          <a id="id_user_register_submit" class="btn btn-primary btn-block" href="javascript:void(0);">立即注册</a>
+          <a id="id_user_register_submit" class="btn btn-primary btn-block" onclick="register()" href="javascript:void(0);">立即注册</a>
         </form>
         <div class="container text-center mt-3">
           <div class="row text-right">
@@ -67,6 +68,10 @@
 
   <#-- 自定义js -->
   <script src="js/f_register.js"></script>
+  <script src="/js/md5.js"></script>
+  <script src="/js/jmessage-sdk-web.2.6.0.min.js"></script>
+  <script src="/js/chat.js"></script>
+
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="py-5 bg-dark">
+<footer class="py-5 bg-dark" style="bottom: 0px;position: fixed;width: 100%;">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 text-center text-lg-left my-auto">

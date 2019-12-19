@@ -27,6 +27,9 @@
                 <li class="nav-item <#if page_index?? && page_index == 2>active</#if>">
                     <a class="nav-link" href="/resume">关于</a>
                 </li>
+                <li class="nav-item <#if page_index?? && page_index == 2>active</#if>">
+                    <a class="nav-link" href="/chat">聊天室</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#"></a>
                 </li>
@@ -44,7 +47,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-                       aria-haspopup="true" aria-expanded="false">${Session ["session_current_user"].username!'登录'}<span
+                       aria-haspopup="true" aria-expanded="false">${Session ["session_current_user"].nickname!'登录'}<span
                             class="caret"></span></a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="#">我的资料</a>

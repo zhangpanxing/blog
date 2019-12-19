@@ -8,3 +8,9 @@
 
 <#-- Fotter -->
 <script src="/js/f_footer.js"></script>
+
+<script src="/js/jmessage-sdk-web.2.6.0.min.js"></script>
+
+<script src="/js/chat.js"></script>
+
+<script src="/js/md5.js"></script>
