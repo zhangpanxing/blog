@@ -56,12 +56,8 @@ function login(username,password) {
         'username' : username,
         'password': password
     }).onSuccess(function(data) {
-        $("#login_div").hide();
-        $(".name_span").text(username).show();
-        $(".name_span1").show();
-        $("#sendUserName").show();
-        $("#login_register_div").hide();
         console.log('success:' + JSON.stringify(data));
+        getFriendList();
         JIM.onMsgReceive(function(data) {
             let messages = data.messages;
             for(message in messages){
@@ -194,6 +190,14 @@ function addSingleReceiptReport(username,msg_ids){
 //获取会话列表
 function getConversation() {
     JIM.getConversation().onSuccess(function(data) {
+        console.log('success:' + JSON.stringify(data));
+    }).onFail(function(data) {
+        console.log('error:' + JSON.stringify(data));
+    });
+}
+//获取好友列表
+function getFriendList(){
+    JIM.getFriendList().onSuccess(function(data) {
         console.log('success:' + JSON.stringify(data));
     }).onFail(function(data) {
         console.log('error:' + JSON.stringify(data));
