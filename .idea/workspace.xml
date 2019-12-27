@@ -1,188 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="94b11f22-1bfd-44e8-951e-a3f1e81594c2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/zbl/fullstack/controller/ChatController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zbl/fullstack/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zbl/fullstack/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/public/footer.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/public/footer.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/public/front_js.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/public/front_js.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/public/nav.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/public/nav.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapping/ArticleMapper 3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapping/UserMapper 3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/zbl/fullstack/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/zbl/fullstack/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mybatisGenerator/config 3.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mybatisGenerator/generatorConfig 3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/public 3.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/data/morris-data 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/home-bg 3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/logo 3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/wechat_qr 3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/b_admin_user_manage 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/b_admin_user_pwd_modify 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/b_admin_userlogin 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/b_blog_modify 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/b_blogadd 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/f_footer 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/public 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/bootstrap/js/bootstrap.min 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/datatables/css/dataTables.foundation 3.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/datatables/css/dataTables.foundation.min 3.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/datatables/css/dataTables.jqueryui 3.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/datatables/css/dataTables.material.min 3.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/datatables/css/dataTables.semanticui.min 3.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/datatables/css/jquery.dataTables 3.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/datatables/css/jquery.dataTables.min 3.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/datatables/css/jquery.dataTables_themeroller 3.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/datatables/images/favicon 3.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/datatables/images/sort_asc 3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/datatables/images/sort_both 3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/datatables/images/sort_desc 3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/datatables/images/sort_desc_disabled 3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/datatables/js/dataTables.bootstrap4 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/datatables/js/dataTables.foundation 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/datatables/js/dataTables.jqueryui 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/datatables/js/dataTables.jqueryui.min 2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/datatables/js/dataTables.material 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/datatables/js/dataTables.material.min 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/datatables/js/jquery 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/flot-tooltip/jquery.flot.tooltip.min 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/flot-tooltip/jquery.flot.tooltip.source 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/HELP-US-OUT 2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/css/font-awesome.min 3.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/fonts/FontAwesome 3.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/fonts/fontawesome-webfont 3.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/fonts/fontawesome-webfont 3.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/fonts/fontawesome-webfont 3.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/fonts/fontawesome-webfont 3.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/less/bordered-pulled 3.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/less/core 3.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/less/fixed-width 3.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/less/font-awesome 3.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/less/icons 3.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/less/larger 3.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/less/list 3.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/less/rotated-flipped 3.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/less/spinning 3.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/less/stacked 3.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/scss/_animated 3.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/scss/_core 3.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/scss/_extras 3.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/scss/_icons 3.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/scss/_larger 3.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/scss/_mixins 3.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/scss/_rotated-flipped 3.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/scss/_screen-reader 3.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/scss/_spinning 3.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/scss/_stacked 3.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/scss/_variables 3.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/font-awesome/scss/font-awesome 3.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/morrisjs/morris 3.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/admin/morrisjs/morris 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/bootstrap/js/bootstrap 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/bootstrap/js/bootstrap.bundle.min 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/bootstrap/js/bootstrap.min 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/css/editormd 2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/css/editormd.logo 2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/css/editormd.logo.min 2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/css/editormd.min 2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/css/editormd.preview 2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/css/editormd.preview.min 2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/editormd.min 2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/fonts/FontAwesome 3.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/fonts/editormd-logo 3.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/fonts/editormd-logo 3.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/fonts/editormd-logo 3.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/fonts/fontawesome-webfont 3.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/fonts/fontawesome-webfont 3.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/fonts/fontawesome-webfont 3.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/images/loading 2.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/images/loading@2x 2.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/images/loading@3x 2.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/images/logos/editormd-favicon-48x48 3.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/images/logos/editormd-logo-114x114 3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/images/logos/editormd-logo-144x144 3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/images/logos/editormd-logo-240x240 3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/images/logos/editormd-logo-24x24 3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/images/logos/editormd-logo-32x32 3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/images/logos/editormd-logo-48x48 3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/images/logos/editormd-logo-57x57 3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/images/logos/editormd-logo-72x72 3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/images/logos/vi 3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/LICENSE 2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/README 3.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/edit/closetag 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/edit/continuelist 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/edit/matchbrackets 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/edit/matchtags 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/edit/trailingspace 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/fold/comment-fold 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/fold/indent-fold 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/fold/xml-fold 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/hint/anyword-hint 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/hint/html-hint 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/hint/javascript-hint 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/hint/show-hint 3.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/hint/show-hint 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/hint/xml-hint 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/lint/javascript-lint 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/lint/json-lint 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/lint/lint 3.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/lint/lint 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/lint/yaml-lint 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/mode/multiplex_test 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/mode/overlay 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/mode/simple 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/runmode/runmode 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/runmode/runmode-standalone 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/scroll/annotatescrollbar 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/scroll/scrollpastend 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/scroll/simplescrollbars 3.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/scroll/simplescrollbars 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/search/matchesonscrollbar 3.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/search/matchesonscrollbar 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/search/search 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/search/searchcursor 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/selection/active-line 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/selection/mark-selection 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addon/tern/tern 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/addons.min 2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/bower 2.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/codemirror.min 2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/codemirror.min 2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/mode/meta 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/codemirror/package 2.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/marked.min 2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/prettify.min 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/lib/sequence-diagram.min 2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/plugins/plugin-template 2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/scss/editormd.grid 2.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/scss/editormd.menu 2.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/scss/editormd.preview 2.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/scss/editormd.preview.themes 2.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/scss/font-awesome 2.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/editor/scss/prettify 2.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/jquery-easing/jquery.easing 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/jquery-easing/jquery.easing.compatibility 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/jquery/jquery 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/layui/css/layui 3.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/layui/css/layui.mobile 2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/layui/css/modules/code 2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/layui/layui 2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vendor/layui/layui.all 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/article 2.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/error 2.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/index 2.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/posts 2.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/public/nav 2.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/public/nav 2.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/public/nav.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/public/nav.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/resume 2.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/userlogin 2.ftl" beforeDir="false" />
-    </list>
+    <list default="true" id="94b11f22-1bfd-44e8-951e-a3f1e81594c2" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -240,7 +59,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/me/zbl/fullstack/controller/UserController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="310">
+                <state relative-caret-position="416">
                   <caret line="68" selection-start-line="68" selection-end-line="68" />
                 </state>
               </provider>
@@ -495,7 +314,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576743953458" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576852292074" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -551,16 +370,15 @@
       <workItem from="1576224249077" duration="9708000" />
       <workItem from="1576320849127" duration="177000" />
       <workItem from="1576322219508" duration="5385000" />
-      <workItem from="1576735232727" duration="7832000" />
+      <workItem from="1576735232727" duration="8152000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23102000" />
+    <option name="totallyTimeSpent" value="23422000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.26037195" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -573,12 +391,12 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.6060241" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.36024097" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.36024097" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.19879518" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.19879518" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" />
@@ -949,7 +767,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/zbl/fullstack/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
+        <state relative-caret-position="416">
           <caret line="68" selection-start-line="68" selection-end-line="68" />
         </state>
       </provider>
