@@ -88,7 +88,7 @@ server:
         accesslog:
 #          线上环境
 #          directory: /project/logs/app
-          directory: /Users/zpx/Desktop/工作/log/app/
+          directory: /Users/wen/Desktop/工作/log/app/
           pattern: combined
           enabled: true
   session:
