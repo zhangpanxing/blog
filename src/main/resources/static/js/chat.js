@@ -3,7 +3,6 @@ var appkey = "1da85b41a92e505c2651bb6b";
 var timestamp = (new Date()).valueOf();
 var secret = "635789d73fcf30a70bf7269f";
 var random_str = "7db047a67a9d7293850ac69d14cc82bf";
-console.log('appkey='+appkey+'&timestamp='+timestamp+'&random_str='+random_str+'&key='+secret) ;
 var signature = hex_md5('appkey='+appkey+'&timestamp='+timestamp+'&random_str='+random_str+'&key='+secret);
 console.log( "appkey"+appkey,
     "random_str"+  random_str,
@@ -18,9 +17,9 @@ function init() {
         "flag": 0
 
     }).onSuccess(function(data) {
-        console.log('success:' + JSON.stringify(data));
+        console.log('success成功:' + JSON.stringify(data));
     }).onFail(function(data) {
-        console.log('error:' + JSON.stringify(data))
+        console.log('error失败:' + JSON.stringify(data))
     });
 }
 init();
@@ -36,9 +35,10 @@ function register(){
     }
 
     console.log(username+":"+password+":"+nickname);
+    var md5Password = hex_md5(password)
     JIM.register({
         'username' : username,
-        'password': password,
+        'password': md5Password,
         'nickname' : nickname
     }).onSuccess(function(data) {
         //alert("注册成功");
@@ -51,7 +51,7 @@ function register(){
 }
 
 function login(username,password) {
-
+    alert(username+":"+password);
     JIM.login({
         'username' : username,
         'password': password
@@ -198,7 +198,7 @@ function getConversation() {
 //获取好友列表
 function getFriendList(){
     JIM.getFriendList().onSuccess(function(data) {
-        console.log('success:' + JSON.stringify(data));
+        console.log('获取好友列表成功：success:' + JSON.stringify(data));
     }).onFail(function(data) {
         console.log('error:' + JSON.stringify(data));
     });
@@ -216,4 +216,20 @@ function onclickRegister(){
 function onclickLogin(){
     $("#login_div").show();
     $("#register_div").hide();
+}
+
+function addFriend(){
+    var addUsername = $(".addFriend_username_input").val();
+    alert(addUsername);
+    JIM.addFriend(
+        {
+            'target_name':addUsername,
+            'why':'hi,friend '
+        }).onSuccess(function(data) {
+            alert("添加成功");
+        console.log('success:' + JSON.stringify(data));
+    }).onFail(function(data) {
+        alert("添加失败");
+        console.log('error:' + JSON.stringify(data));
+    });
 }
