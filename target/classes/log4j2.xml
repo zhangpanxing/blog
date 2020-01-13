@@ -5,8 +5,8 @@
         <!--线上环境-->
         <!--<Property name="fileName">/project/logs</Property>-->
         <!--<Property name="fileGz">/project/logs/blog</Property>-->
-        <Property name="fileName">/Users/wen/Desktop/工作/log/</Property>
-        <Property name="fileGz">/Users/wen/Desktop/工作/log//7z</Property>
+        <Property name="fileName">/Users/zpx/Desktop/工作/log/</Property>
+        <Property name="fileGz">/Users/zpx/Desktop/工作/log//7z</Property>
     </Properties>
     <Appenders>
         <!--这个输出控制台的配置 -->
