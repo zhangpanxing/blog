@@ -8,7 +8,6 @@ import com.qcloud.cos.model.Bucket;
 import com.qcloud.cos.model.PutObjectRequest;
 import com.qcloud.cos.model.PutObjectResult;
 import com.qcloud.cos.region.Region;
-import org.apache.logging.log4j.message.Message;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 
@@ -32,6 +31,8 @@ public class OssUtil {
     private static String bucket = "zpxblogs-1259581391";
 
     private static String PathKey = "/Blogs/image/";
+
+    private static String ossUrl = "thttps://zpxblogs-1259581391.cos.ap-chengdu.myqcloud.com/";
 
     /**
      * 初始化
@@ -60,23 +61,43 @@ public class OssUtil {
     /**
      * 上传普通文件路径
      * @param path
-     * @return
+     * @return  返回线上地址
      * @throws IOException
      */
-    private  PutObjectResult putObject(String path){
+    private static Message putObject(String path){
         File localFile = new File(path);
         String a =localFile.getName();
-        String PathKey = this.PathKey+a;
+        String key = PathKey+a;
         try {
-            PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, PathKey, localFile);
+            PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, key, localFile);
             PutObjectResult putObjectResult = cosClient.putObject(putObjectRequest);
-            return putObjectResult;
+            if(putObjectResult != null){
+                String imageUrl = ossUrl+path;
+                return Message.success(imageUrl);
+            }
         }catch (Throwable e){
             System.out.println("上传文件失败");
+
         }
 
-        return null;
+        return Message.error("上传文件失败");
 
+    }
+
+    /**
+     * 删除单个文件
+     * @param fileName
+     * @return
+     */
+    private static Message deleteObject(String fileName){
+        String key = PathKey+fileName;
+        try{
+        cosClient.deleteObject(bucket, key);
+        return Message.success();
+        }catch (Throwable e){
+            System.out.println(e.toString()+"删除文件失败");
+        }
+        return Message.error("删除文件失败");
     }
 
 
@@ -84,8 +105,10 @@ public class OssUtil {
 
 
     public static void main(String [] arr) throws IOException {
-        PutObjectResult putObjectResult = OssUtil.getInstance().putObject("/Users/wen/Desktop/upload_075d96db-6424-4ef3-a8d9-137a97134fdd.png");
-        System.out.println(putObjectResult);
+        getInstance();
+//        putObject("/Users/wen/Desktop/upload_075d96db-6424-4ef-a8d9-137a97134fcc.png");
+         deleteObject("upload_075d96db-6424-4ef3-a8d9-137a97134fdd.png");
+
     }
 
 
