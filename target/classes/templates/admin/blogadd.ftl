@@ -42,6 +42,8 @@
 
 <body>
 
+
+
 <div id="wrapper">
 <#-- s 导航 -->
 <#include "public/nav.ftl">
@@ -143,5 +145,6 @@
 <script src="../js/b_blogadd.js"></script>
 <script src="../js/public.js"></script>
 </body>
+
 
 </html>

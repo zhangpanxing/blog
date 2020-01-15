@@ -27,9 +27,9 @@
                 <li class="nav-item <#if page_index?? && page_index == 2>active</#if>">
                     <a class="nav-link" href="/resume">关于</a>
                 </li>
-                <li class="nav-item <#if page_index?? && page_index == 2>active</#if>">
-                    <a class="nav-link" href="/chat">聊天室</a>
-                </li>
+                <#--<li class="nav-item <#if page_index?? && page_index == 2>active</#if>">-->
+                    <#--<a class="nav-link" href="/chat">聊天室</a>-->
+                <#--</li>-->
                 <li class="nav-item">
                     <a class="nav-link" href="#"></a>
                 </li>

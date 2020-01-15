@@ -78,17 +78,17 @@ server:
       min-response-size: 512
       enabled: true
       mime-types: text/html,text/css,text/javascript,application/javascript,image/gif,image/png,image/jpg
-#  ssl:
-#      key-store: classpath:2878067_www.zpxblogs.com.pfx
-#      key-store-password: qHGV5z0z
-#      key-store-type: PKCS12
+  ssl:
+      key-store: classpath:2878067_www.zpxblogs.com.pfx
+      key-store-password: qHGV5z0z
+      key-store-type: PKCS12
   tomcat:
         maxThreads: 12
         minSpareThreads: 3
         accesslog:
 #          线上环境
-#          directory: /project/logs/app
-          directory: /Users/wen/Desktop/工作/log/app/
+          directory: /project/logs/app
+#          directory: /Users/wen/Desktop/工作/log/app/
           pattern: combined
           enabled: true
   session:

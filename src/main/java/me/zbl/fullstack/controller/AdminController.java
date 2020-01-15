@@ -1,5 +1,6 @@
 package me.zbl.fullstack.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import me.zbl.fullstack.controller.base.BaseController;
 import me.zbl.fullstack.entity.Article;
 import me.zbl.fullstack.entity.Resume;
@@ -14,14 +15,25 @@ import me.zbl.fullstack.service.api.IAdminBlogService;
 import me.zbl.fullstack.service.api.IAdminUserService;
 import me.zbl.fullstack.service.api.IAdminUserService.ModifyPwdResult;
 import me.zbl.fullstack.service.api.IResumeService;
+import me.zbl.fullstack.utils.FileUtil;
+import me.zbl.fullstack.utils.Message;
+import me.zbl.fullstack.utils.OssUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.ResourceUtils;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 import static me.zbl.fullstack.consts.ViewConsts.*;
 
@@ -71,6 +83,43 @@ public class AdminController extends BaseController {
   @GetMapping("/blogadd")
   public String pAdminBlogAdd(HttpServletRequest request, Model model) {
     return "admin/blogadd";
+  }
+
+  /**
+   * 上传图片，图片存放在腾讯OSS
+   * @param request
+   * @param response
+   * @return
+   * @throws IOException
+   */
+  @PostMapping("/blogImage")
+  @ResponseBody
+  public String addBlogImage(HttpServletRequest request ,HttpServletResponse response) throws IOException {
+    String fileName = request.getParameter("data");
+    String base64 = request.getParameter("imageBase64");
+    JSONObject json =new JSONObject();
+    if(fileName == null && StringUtils.isEmpty(base64)){
+      json.put("error","错误");
+      return json.toString();
+    }
+    String path = ResourceUtils.getURL("classpath:").getPath();
+    String ImagePath = path+"static/img/"+fileName;
+    Boolean isOK = FileUtil.Base64ToImage(base64,ImagePath);
+
+
+    if(isOK){
+      Message message = OssUtil.getInstance().putObject(ImagePath);
+      if(message.getCode() == 1){
+        json.put("imageUrl",message.getMessage());
+        FileUtil.delete(new File(ImagePath));
+      }
+    }else{
+      json.put("error","错误");
+      return json.toString();
+    }
+
+
+    return json.toString();
   }
 
   /**

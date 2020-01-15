@@ -1,12 +1,13 @@
 package me.zbl.fullstack.utils;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.util.ResourceUtils;
+
+import sun.misc.BASE64Decoder;
+import sun.misc.BASE64Encoder;
+
+import java.io.*;
+import java.util.Base64;
 
 /**
  * 文件相关操作辅助类。
@@ -151,7 +152,7 @@ public class FileUtil {
      * 从文件路径中抽取文件的扩展名, 例如. "mypath/myfile.txt" -> "txt". * @author 张
      *
      * @date 2019年06月24日
-     * @param 文件路径
+     * @param
      * @return 如果path为null，直接返回null。
      */
     public static String getFilenameExtension(String path) {
@@ -241,4 +242,99 @@ public class FileUtil {
         streamOut.close();
         streamIn.close();
     }
+
+
+    /**
+     * 将图片文件转换成base64字符串，参数为该图片的路径
+     *
+     * @param imageFile
+     * @return java.lang.String
+     */
+    public String ImageToBase64(String imageFile) {
+        InputStream in = null;
+        byte[] data = null;
+
+        // 读取图片字节数组
+        try {
+            in = new FileInputStream(imageFile);
+            data = new byte[in.available()];
+            in.read(data);
+            in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // 对字节数组Base64编码
+        BASE64Encoder encoder = new BASE64Encoder();
+
+        if (data != null) {
+            return "data:image/jpeg;base64," + encoder.encode(data);// 返回Base64编码过的字节数组字符串
+        }
+        return null;
+    }
+    /**
+     * 将base64解码成图片并保存在传入的路径下
+     * 第一个参数为base64 ，第二个参数为路径
+     *
+     * @param base64, imgFilePath
+     * @return boolean
+     */
+    public static boolean Base64ToImage(String base64, String imgFilePath) {
+
+        /**
+         * 去掉前缀
+         */
+        base64 = StringUtils.substringAfter(base64,",");
+
+        // 对字节数组字符串进行Base64解码并生成图片
+        if (base64 == null) // 图像数据为空
+            return false;
+        BASE64Decoder decoder = new BASE64Decoder();
+        try {
+            // Base64解码
+            byte[] b = decoder.decodeBuffer(base64);
+            for (int i = 0; i < b.length; ++i) {
+                if (b[i] < 0) {// 调整异常数据
+                    b[i] += 256;
+                }
+            }
+            OutputStream out = new FileOutputStream(imgFilePath);
+            out.write(b);
+            out.flush();
+            out.close();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+
+    }
+
+
+
+
+
+
+    public static void main(String [] arr) throws IOException {
+        File file = new File("/Users/wen/Desktop/fileauth.txt");
+        FileInputStream fin=new FileInputStream(file);
+        byte[] bs=new byte[1024];
+        int count=0;
+        String s = "";
+        while((count=fin.read(bs))>0)
+        {
+           String str=new String(bs,0,count);	//反复定义新变量：每一次都 重新定义新变量，接收新读取的数据
+            s = s+str;
+        }
+        fin.close();
+
+
+
+
+        String path = ResourceUtils.getURL("classpath:").getPath();
+        String newPath = path+"static/img/1.jpg";
+        Base64ToImage(s,newPath);
+
+
+    }
+
+
 }

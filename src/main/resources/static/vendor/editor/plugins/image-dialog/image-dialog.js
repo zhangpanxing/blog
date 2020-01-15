@@ -39,7 +39,7 @@
             if (editor.find("." + dialogName).length < 1)
             {
                 var guid   = (new Date).getTime();
-                var action = settings.imageUploadURL + (settings.imageUploadURL.indexOf("?") >= 0 ? "&" : "?") + "guid=" + guid;
+                var action = "/blogImage";
 
                 if (settings.crossDomainUpload)
                 {
@@ -49,9 +49,9 @@
                 var dialogContent = ( (settings.imageUpload) ? "<form action=\"" + action +"\" target=\"" + iframeName + "\" method=\"post\" enctype=\"multipart/form-data\" class=\"" + classPrefix + "form\">" : "<div class=\"" + classPrefix + "form\">" ) +
                                         ( (settings.imageUpload) ? "<iframe name=\"" + iframeName + "\" id=\"" + iframeName + "\" guid=\"" + guid + "\"></iframe>" : "" ) +
                                         "<label>" + imageLang.url + "</label>" +
-                                        "<input type=\"text\" data-url />" + (function(){
+                                        "<input id=\"image_url\" type=\"text\" data-url />" + (function(){
                                             return (settings.imageUpload) ? "<div class=\"" + classPrefix + "file-input\">" +
-                                                                                "<input type=\"file\" name=\"" + classPrefix + "image-file\" accept=\"image/*\" />" +
+                                                                                "<input id=\"fileId\" type=\"file\" name=\"" + classPrefix + "image-file\" accept=\"image/*\" />" +
                                                                                 "<input type=\"submit\" value=\"" + imageLang.uploadButton + "\" />" +
                                                                             "</div>" : "";
                                         })() +
@@ -155,26 +155,69 @@
 
                         uploadIframe.onload = function() {
 
+                            var curWwwPath = window.document.location.href;
+                            var pathName=window.document.location.pathname;
+                            var pos=curWwwPath.indexOf(pathName);
+                            var localhostPaht = curWwwPath.substring(0,pos);
+
                             loading(false);
 
-                            var body = (uploadIframe.contentWindow ? uploadIframe.contentWindow : uploadIframe.contentDocument).document.body;
-                            var json = (body.innerText) ? body.innerText : ( (body.textContent) ? body.textContent : null);
+                            var objFile = document.getElementById("fileId");
+                            var formData = new FormData();
+                            formData.append("data",objFile.files[0].name);
 
-                            json = (typeof JSON.parse !== "undefined") ? JSON.parse(json) : eval("(" + json + ")");
 
-                            if(!settings.crossDomainUpload)
-                            {
-                              if (json.success === 1)
-                              {
-                                  dialog.find("[data-url]").val(json.url);
-                              }
-                              else
-                              {
-                                  alert(json.message);
-                              }
-                            }
+                            var imgFile = new FileReader();
+                            imgFile.readAsDataURL(objFile.files[0]);
+                            var imageBase64 = imgFile.result;
+                            formData.append("imageBase64",imageBase64);
 
-                            return false;
+
+                            $.ajax({
+                                type: "POST",
+                                url:localhostPaht+"/admin/blogImage",
+                                data:formData,
+                                async: false,
+                                cache: false,   //上传文件不需要缓存
+                                contentType: false,  //需设置为false。因为是FormData对象，且已经声明了属性enctype="multipart/form-data"
+                                processData: false,  //需设置为false。因为data值是FormData对象，不需要对数据做处理
+                                success: function (res) {
+                                    var obj = eval("("+res+")");
+                                    var imageUrl = obj.imageUrl;
+                                    // alert(imageUrl);
+                                    $("#image_url").val(imageUrl);
+
+                                },
+                                error:function (res) {
+                                    // alert(res);
+                                    alert("error");
+                                    return false;
+
+                                }
+
+                            });
+
+
+                            // var body = (uploadIframe.contentWindow ? uploadIframe.contentWindow : uploadIframe.contentDocument).document.body;
+                            // var json = (body.innerText) ? body.innerText : ( (body.textContent) ? body.textContent : null);
+                            //
+                            // json = (typeof JSON.parse !== "undefined") ? JSON.parse(json) : eval("(" + json + ")");
+                            //
+                            // if(!settings.crossDomainUpload)
+                            // {
+                            //   if (json.success === 1)
+                            //   {
+                            //       dialog.find("[data-url]").val(json.url);
+                            //   }
+                            //   else
+                            //   {
+                            //       alert(json.message);
+                            //   }
+                            // }
+                            //
+                            // return false;
+
+
                         };
                     };
 

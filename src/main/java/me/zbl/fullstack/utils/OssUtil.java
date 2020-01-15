@@ -32,7 +32,7 @@ public class OssUtil {
 
     private static String PathKey = "/Blogs/image/";
 
-    private static String ossUrl = "thttps://zpxblogs-1259581391.cos.ap-chengdu.myqcloud.com/";
+    private static String ossUrl = "https://zpxblogs-1259581391.cos.ap-chengdu.myqcloud.com/";
 
     /**
      * 初始化
@@ -64,7 +64,7 @@ public class OssUtil {
      * @return  返回线上地址
      * @throws IOException
      */
-    private static Message putObject(String path){
+    public Message putObject(String path){
         File localFile = new File(path);
         String a =localFile.getName();
         String key = PathKey+a;
@@ -72,7 +72,7 @@ public class OssUtil {
             PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, key, localFile);
             PutObjectResult putObjectResult = cosClient.putObject(putObjectRequest);
             if(putObjectResult != null){
-                String imageUrl = ossUrl+path;
+                String imageUrl = ossUrl+key;
                 return Message.success(imageUrl);
             }
         }catch (Throwable e){
@@ -89,7 +89,7 @@ public class OssUtil {
      * @param fileName
      * @return
      */
-    private static Message deleteObject(String fileName){
+    public   Message deleteObject(String fileName){
         String key = PathKey+fileName;
         try{
         cosClient.deleteObject(bucket, key);
@@ -107,7 +107,7 @@ public class OssUtil {
     public static void main(String [] arr) throws IOException {
         getInstance();
 //        putObject("/Users/wen/Desktop/upload_075d96db-6424-4ef-a8d9-137a97134fcc.png");
-         deleteObject("upload_075d96db-6424-4ef3-a8d9-137a97134fdd.png");
+//         deleteObject("upload_075d96db-6424-4ef3-a8d9-137a97134fdd.png");
 
     }
 
