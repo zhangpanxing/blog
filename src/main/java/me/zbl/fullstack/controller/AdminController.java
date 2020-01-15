@@ -19,6 +19,7 @@ import me.zbl.fullstack.utils.FileUtil;
 import me.zbl.fullstack.utils.Message;
 import me.zbl.fullstack.utils.OssUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.ResourceUtils;
@@ -52,6 +53,9 @@ public class AdminController extends BaseController {
   IAdminUserService mAdminUserService;
   @Autowired
   IResumeService mResumeService;
+
+  @Value("${file.uploadFolder}")
+  String path;
 
   /**
    * 后台首页
@@ -102,8 +106,8 @@ public class AdminController extends BaseController {
       json.put("error","错误");
       return json.toString();
     }
-    String path = ResourceUtils.getURL("classpath:").getPath();
-    String ImagePath = path+"static/img/"+fileName;
+
+    String ImagePath = path+fileName;
     Boolean isOK = FileUtil.Base64ToImage(base64,ImagePath);
 
 
