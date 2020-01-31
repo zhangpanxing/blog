@@ -26,39 +26,39 @@ public class  FullstackApplication {
   }
 
 
- @Bean
-  public EmbeddedServletContainerFactory servletContainer() {
-    TomcatEmbeddedServletContainerFactory tomcat = new TomcatEmbeddedServletContainerFactory() {
-      @Override
-      protected void postProcessContext(Context context) {
-        SecurityConstraint constraint = new SecurityConstraint();
-        constraint.setUserConstraint("CONFIDENTIAL");
-        SecurityCollection collection = new SecurityCollection();
-        collection.addPattern("/*");
-        constraint.addCollection(collection);
-        context.addConstraint(constraint);
-      }
-    };
-    tomcat.addAdditionalTomcatConnectors(httpConnector());
-    return tomcat;
-  }
-
-  //配置http转https
-  @Bean
-  public Connector httpConnector() {
-    Connector connector = new Connector(TomcatEmbeddedServletContainerFactory.DEFAULT_PROTOCOL);
-    connector.setScheme("http");
-//Connector监听的http的端口号
-    connector.setPort(80);
-    connector.setSecure(false);
-//监听到http的端口号后转向到的https的端口号
-    connector.setRedirectPort(443);
-    return connector;
-  }
-
-  //这里设置默认端口为443，即https的
-  public void customize(ConfigurableEmbeddedServletContainer container) {
-    container.setPort(443);
-  }
-
+// @Bean
+//  public EmbeddedServletContainerFactory servletContainer() {
+//    TomcatEmbeddedServletContainerFactory tomcat = new TomcatEmbeddedServletContainerFactory() {
+//      @Override
+//      protected void postProcessContext(Context context) {
+//        SecurityConstraint constraint = new SecurityConstraint();
+//        constraint.setUserConstraint("CONFIDENTIAL");
+//        SecurityCollection collection = new SecurityCollection();
+//        collection.addPattern("/*");
+//        constraint.addCollection(collection);
+//        context.addConstraint(constraint);
+//      }
+//    };
+//    tomcat.addAdditionalTomcatConnectors(httpConnector());
+//    return tomcat;
+//  }
+//
+//  //配置http转https
+//  @Bean
+//  public Connector httpConnector() {
+//    Connector connector = new Connector(TomcatEmbeddedServletContainerFactory.DEFAULT_PROTOCOL);
+//    connector.setScheme("http");
+////Connector监听的http的端口号
+//    connector.setPort(80);
+//    connector.setSecure(false);
+////监听到http的端口号后转向到的https的端口号
+//    connector.setRedirectPort(443);
+//    return connector;
+//  }
+//
+//  //这里设置默认端口为443，即https的
+//  public void customize(ConfigurableEmbeddedServletContainer container) {
+//    container.setPort(443);
+//  }
+//
 }
