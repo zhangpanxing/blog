@@ -72,7 +72,7 @@ spring:
         ddl-auto: none
 
 server:
-  port: 8080
+  port: 443
   max-http-header-size: 8192
   compression:
       min-response-size: 512
@@ -101,4 +101,8 @@ logging:
 mybatis:
     type-aliases-package: me.zbl.fullstack.entity
     mapper-locations: classpath:mapping/*.xml
+
+file:
+  uploadFolder: /project/temp/
+#  uploadFolder: /Users/wen/Desktop/工作/log/app/img/
 
