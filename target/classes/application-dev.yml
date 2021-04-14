@@ -82,17 +82,17 @@ server:
       min-response-size: 512
       enabled: true
       mime-types: text/html,text/css,text/javascript,application/javascript,image/gif,image/png,image/jpg
-  ssl:
-      key-store: classpath:4612993_www.zpxblogs.com.pfx
-      key-store-password: dGRO2JXJ
-      key-store-type: PKCS12
+#  ssl:
+#      key-store: classpath:4612993_www.zpxblogs.com.pfx
+#      key-store-password: dGRO2JXJ
+#      key-store-type: PKCS12
   tomcat:
         maxThreads: 12
         minSpareThreads: 3
         accesslog:
 #          线上环境
-          directory: /docker/data/logs/app
-#          directory: /Users/zpx/Desktop/工作/log/app/
+#          directory: /docker/data/logs/app
+          directory: /Users/zpx/Desktop/工作/log/app/
           pattern: combined
           enabled: true
   session:
@@ -108,10 +108,18 @@ mybatis:
 
 file:
 #    线上地址
-  uploadFolder: /docker/data/temp/
+#  uploadFolder: /docker/data/temp/
 #  本地地址
-#  uploadFolder: /Users/zpx/Desktop/工作/log/app/img/
+  uploadFolder: /Users/zpx/Desktop/工作/log/app/img/
 wxOpen:
-  appid: wxd494462d567edae8
-  AppSecret: d84f6cb7e4009d62fce444e99e361a75
+    appid: wxd494462d567edae8
+    AppSecret: d84f6cb7e4009d62fce444e99e361a75
+
+tengxunyun:
+    oss:
+      secretId: AKIDA5mESRjr42pwoQrysa6QK2WlocbLQ55p
+      secretKey: h8KL8gz3sRlpllX4MOAhy2sTpwEQN5f0
+      bucket: zpxblogs-1259581391
+      PathKey: /Blogs/image/
+
 

@@ -55,6 +55,7 @@ public class AdminController extends BaseController {
   @Autowired
   IResumeService mResumeService;
 
+
   @Value("${file.uploadFolder}")
   String path;
 
@@ -115,7 +116,8 @@ public class AdminController extends BaseController {
 
 
     if(isOK){
-      Message message = OssUtil.getInstance().putObject(ImagePath);
+      OssUtil.init();
+      Message message =OssUtil.putObject(ImagePath);
       if(message.getCode() == 1){
         json.put("imageUrl",message.getMessage());
         FileUtil.delete(new File(ImagePath));

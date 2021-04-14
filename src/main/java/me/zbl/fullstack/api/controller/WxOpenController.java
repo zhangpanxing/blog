@@ -14,6 +14,7 @@ import me.zbl.fullstack.service.impl.FollowServiceImpl;
 import me.zbl.fullstack.service.impl.TagServiceImpl;
 import me.zbl.fullstack.service.impl.UserServiceImpl;
 import me.zbl.fullstack.utils.Message;
+import me.zbl.fullstack.utils.TestUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,9 @@ public class WxOpenController  {
     private CommentServiceImpl commentService;
     @Autowired
     private FollowServiceImpl followService;
+
+//    @Autowired
+//    private TestUtil testUtil;
 
     /**
      *  小程序获取简历
@@ -257,6 +261,13 @@ public class WxOpenController  {
             }
         }
         return null;
+    }
+    @ResponseBody
+    @RequestMapping(value = "/demo",method = RequestMethod.GET)
+    public String demo(){
+
+        TestUtil.dome();
+        return "12";
     }
 
 
