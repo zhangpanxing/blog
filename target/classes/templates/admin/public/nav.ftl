@@ -54,7 +54,14 @@
                     <a href="/admin/resume_modify"><i class="fa fa-table fa-fw"></i> 简历管理</a>
                 </li>
                 <li>
-                    <a href="/admin/admin_user_manage"><i class="fa fa-edit fa-fw"></i> 用户管理</a>
+                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 用户管理<span class="fa arrow"></span></a>                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="/admin/admin_user_manage"> 管理员账号</a>
+                        </li>
+                        <li>
+                            <a href="/admin/wx_open_users_manage"> 小程序用户</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>

@@ -22,5 +22,36 @@
     <result column="hobby" jdbcType="LONGVARCHAR" property="hobby" />
     <result column="motto" jdbcType="LONGVARCHAR" property="motto" />
     <result column="md_info" jdbcType="LONGVARCHAR" property="mdInfo" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
   </resultMap>
+
+  <sql id="Base_Column_List">
+                id,
+                username,
+                password,
+                birth_date,
+                nickname,
+                email,
+                github,
+                qq,
+                wecaht,
+                hobby,
+                motto,
+                md_info,
+                avatar,
+                status,
+                level,
+                gmt_create,
+                gmt_modified,
+                open_id as openId
+    </sql>
+
+  <select id="forOpenIdFindUser" resultType="me.zbl.fullstack.entity.User">
+    SELECT <include refid="Base_Column_List" /> from user where user.open_id = '${open_id}'
+
+  </select>
+
+   <select id="byIdFindUser"  resultType="me.zbl.fullstack.entity.User">
+       SELECT <include refid="Base_Column_List" /> from user where user.id = '${userId}'
+   </select>
 </mapper>

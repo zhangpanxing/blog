@@ -45,4 +45,8 @@ public class BlogModifyForm {
    * 原始 tags
    */
   private String rawTags;
+
+  private Integer isDelete;
+
+  private Integer isComment;
 }

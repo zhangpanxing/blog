@@ -65,6 +65,13 @@
             <button id="id_btn_delete" type="button" class="btn btn-default">
                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 删除
             </button>
+            <#--<button id="id_btn_eye-open" type="button" class="btn btn-default">-->
+                <#--<span class="glyphicon  glyphicon-eye-open" aria-hidden="true"></span> 隐藏-->
+            <#--</button>-->
+            <#--<button id="id_btn_comment" type="button" class="btn btn-default">-->
+                <#--<span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 开启评论-->
+            <#--</button>-->
+
         </div>
         <!-- s 表格 -->
         <table id="id_table_blog">

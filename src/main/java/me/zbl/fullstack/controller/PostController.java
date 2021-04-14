@@ -46,7 +46,7 @@ public class PostController extends BaseController {
   public String pPostList(HttpServletRequest request, Model model, Integer tagId) throws Exception {
     List<PostView> postViewList = null;
     if (null != tagId) {
-      postViewList = mPostService.getPostListByTagId(tagId);
+      postViewList = mPostService.getPostListByTagId(tagId,0,20);
     } else {
       postViewList = mPostService.getPostList();
     }

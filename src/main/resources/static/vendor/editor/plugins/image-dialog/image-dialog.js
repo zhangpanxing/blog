@@ -52,7 +52,7 @@
                                         "<input id=\"image_url\" type=\"text\" data-url />" + (function(){
                                             return (settings.imageUpload) ? "<div class=\"" + classPrefix + "file-input\">" +
                                                                                 "<input id=\"fileId\" type=\"file\" name=\"" + classPrefix + "image-file\" accept=\"image/*\" />" +
-                                                                                "<input type=\"submit\" value=\"" + imageLang.uploadButton + "\" />" +
+                                                                                "<input onclick=\"submitImage() {}\" type=\"submit\" value=\"" + imageLang.uploadButton + "\" />" +
                                                                             "</div>" : "";
                                         })() +
                                         "<br/>" +
@@ -164,13 +164,7 @@
 
                             var objFile = document.getElementById("fileId");
                             var formData = new FormData();
-                            formData.append("data",objFile.files[0].name);
-
-
-                            var imgFile = new FileReader();
-                            imgFile.readAsDataURL(objFile.files[0]);
-                            var imageBase64 = imgFile.result;
-                            formData.append("imageBase64",imageBase64);
+                            formData.append("data",objFile.files[0]);
 
 
                             $.ajax({
@@ -185,6 +179,9 @@
                                     var obj = eval("("+res+")");
                                     var imageUrl = obj.imageUrl;
                                     // alert(imageUrl);
+                                    if(imageUrl == null){
+                                        alert("添加图片失败");
+                                    }
                                     $("#image_url").val(imageUrl);
 
                                 },

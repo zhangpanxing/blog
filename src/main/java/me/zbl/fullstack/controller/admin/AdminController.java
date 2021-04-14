@@ -1,4 +1,4 @@
-package me.zbl.fullstack.controller;
+package me.zbl.fullstack.controller.admin;
 
 import com.alibaba.fastjson.JSONObject;
 import me.zbl.fullstack.controller.base.BaseController;
@@ -27,6 +27,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import sun.misc.BASE64Encoder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -62,7 +63,7 @@ public class AdminController extends BaseController {
    */
   @GetMapping("")
   public String pAdminIndex(HttpServletRequest request, Model model) {
-    return "admin/blog_manage";
+    return "admin/index";
   }
 
   /**
@@ -70,7 +71,7 @@ public class AdminController extends BaseController {
    */
   @GetMapping("/index")
   public String pAdminIndex2(HttpServletRequest request, Model model) {
-    return "admin/blog_manage";
+    return "admin/index";
   }
 
   /**
@@ -98,11 +99,13 @@ public class AdminController extends BaseController {
    */
   @PostMapping("/blogImage")
   @ResponseBody
-  public String addBlogImage(HttpServletRequest request ,HttpServletResponse response) throws IOException {
-    String fileName = request.getParameter("data");
-    String base64 = request.getParameter("imageBase64");
+  public String addBlogImage(@RequestParam(value = "data", required = false) MultipartFile file,HttpServletRequest request ,HttpServletResponse response) throws IOException {
+    BASE64Encoder base64Encoder =new BASE64Encoder();
+
+    Object fileName = file.getOriginalFilename();
+    String base64 = base64Encoder.encode(file.getBytes());
     JSONObject json =new JSONObject();
-    if(fileName == null && StringUtils.isEmpty(base64) && "".equals(base64)){
+    if(fileName == null || StringUtils.isEmpty(base64) || "".equals(base64)){
       json.put("error","错误");
       return json.toString();
     }
@@ -191,6 +194,62 @@ public class AdminController extends BaseController {
   public Object jAdminBlogDelete(@RequestBody TableKeyModel model) {
     mBlogService.blogDelete(model);
     return responseSimpleOK();
+  }
+
+  /**
+   * 批量隐藏博客
+   * @param blogId
+   * @return
+   */
+  @ResponseBody
+  @GetMapping("/update_is_delete")
+  public String updateIsDelete(Integer blogId){
+    BlogModifyForm blogModifyForm = new BlogModifyForm();
+    Article article = mBlogService.blogSelectByPrimaryKey(blogId);
+    JSONObject json =new JSONObject();
+    if(article == null){
+      json.put("error",false);
+      return json.toJSONString();
+    }
+    blogModifyForm.setId(blogId);
+    if(article.getIsDelete() == 0){
+      blogModifyForm.setIsDelete(1);
+    }else{
+      blogModifyForm.setIsDelete(0);
+    }
+    mBlogService.blogModify(blogModifyForm);
+    json.put("succeed",true);
+
+      return json.toJSONString();
+
+  }
+
+  /**
+   * 批量禁止评论
+   * @param blogId
+   * @return
+   */
+  @ResponseBody
+  @GetMapping("/update_is_comment")
+  public Object updateIsComment(Integer blogId){
+    BlogModifyForm blogModifyForm = new BlogModifyForm();
+    Article article = mBlogService.blogSelectByPrimaryKey(blogId);
+    JSONObject json =new JSONObject();
+    if(article == null){
+      json.put("error",false);
+      return json.toJSONString();
+    }
+    blogModifyForm.setId(blogId);
+    if(article.getIsComment() == 0){
+      blogModifyForm.setIsComment(1);
+    }else{
+      blogModifyForm.setIsComment(0);
+    }
+    mBlogService.blogModify(blogModifyForm);
+    json.put("succeed",true);
+
+    return json.toJSONString();
+
   }
 
   /**

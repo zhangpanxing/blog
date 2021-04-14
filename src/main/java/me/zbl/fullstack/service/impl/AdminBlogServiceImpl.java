@@ -101,6 +101,8 @@ public class AdminBlogServiceImpl implements IAdminBlogService {
     article.setHtmlMaterial(form.getHtmlMaterial());
     article.setMdMaterial(form.getMdMaterial());
     article.setTitle(form.getTitle());
+    article.setIsComment(form.getIsComment());
+    article.setIsDelete(form.getIsDelete());
     // 更新数据库中的信息
     mArticleMapper.updateByPrimaryKeySelective(article);
   }

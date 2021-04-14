@@ -6,6 +6,7 @@ import me.zbl.fullstack.entity.dto.form.UserLoginForm;
 import me.zbl.fullstack.entity.dto.form.UserRegisterForm;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * 用户信息操作接口
@@ -53,4 +54,14 @@ public interface IUserService {
    * @param request 用户请求
    */
   void destroySession(HttpServletRequest request);
+
+  /**
+   * 通过openId查找用户
+   */
+
+  User forOpenIdFindUser(String openId);
+
+  User byIdFindUser(Integer userId);
+
+  List<User> getAllWxOpenUser();
 }

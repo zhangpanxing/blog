@@ -11,6 +11,7 @@
     <!-- Custom styles for this template -->
     <link href="/css/full-slider/full-slider.css" rel="stylesheet">
 
+
 <#-- 自定义 样式 -->
 <#include "public/front_custom_css.ftl">
 

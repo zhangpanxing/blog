@@ -20,7 +20,7 @@ import java.util.List;
  * @author James
  */
 @Service
-public class UserServiceImpl implements IUserService {
+public class UserServiceImpl implements IUserService  {
 
   @Autowired
   private UserMapper mMapper;
@@ -42,7 +42,10 @@ public class UserServiceImpl implements IUserService {
   @Override
   public void insertUser(User user) {
     String pwdStr = user.getPassword();
-    user.setPassword(DigestUtils.md5Hex(pwdStr));
+    if(pwdStr != null){
+      user.setPassword(DigestUtils.md5Hex(pwdStr));
+    }
+
     mMapper.insertSelective(user);
   }
 
@@ -56,5 +59,19 @@ public class UserServiceImpl implements IUserService {
   public void destroySession(HttpServletRequest request) {
     HttpSession requestSession = request.getSession(true);
     requestSession.removeAttribute(SessionConstants.SESSION_CURRENT_USER);
+  }
+
+  @Override
+  public User forOpenIdFindUser(String openId) {
+    return  mMapper.forOpenIdFindUser(openId);
+  }
+
+  public User byIdFindUser(Integer userId){
+    return  mMapper.byIdFindUser(userId);
+  }
+
+  @Override
+  public List<User> getAllWxOpenUser() {
+    return mMapper.getAllUser();
   }
 }

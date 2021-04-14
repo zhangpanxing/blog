@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 import me.zbl.fullstack.entity.Article;
 import org.apache.commons.lang3.time.DateFormatUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 /**
  * 博客列表视图
@@ -21,6 +24,17 @@ public class PostView {
   private String description;
   private String dateTime;
   private String htmlMaterial;
+  private String image;
+  private String mdMaterial;
+  private Integer isDelete;
+  private Integer isComment;
+
+  private Integer CommentCount;
+  private Integer likeCount;
+
+  private Boolean isFollow;
+
+
 
   /**
    * 拷贝构造方法
@@ -33,5 +47,16 @@ public class PostView {
     description = article.getIntroduction();
     dateTime = DateFormatUtils.format(article.getGmtCreate(), "yyyy-MM-dd HH:mm");
     htmlMaterial = article.getHtmlMaterial();
+    image = article.getImage();
+    mdMaterial = article.getMdMaterial();
+    isDelete = article.getIsDelete();
+    isComment = article.getIsComment();
   }
+
+  public PostView(){}
+
+
+
+
+
 }

@@ -39,6 +39,14 @@ public class Article {
   @Column(name = "html_material")
   private String htmlMaterial;
 
+  @Column(name = "is_delete")
+  private Integer isDelete;
+
+  private String image;
+
+  @Column(name = "is_comment")
+  private Integer isComment;
+
   /**
    * 获取PrimaryKey
    *
@@ -92,6 +100,14 @@ public class Article {
     return gmtModified;
   }
 
+  public String getImage() {
+    return image;
+  }
+
+  public void setImage(String image) {
+    this.image = image;
+  }
+
   /**
    * @param gmtModified
    */
@@ -104,6 +120,15 @@ public class Article {
    */
   public String getIntroduction() {
     return introduction;
+  }
+
+
+  public Integer getIsDelete() {
+    return isDelete;
+  }
+
+  public void setIsDelete(Integer isDelete) {
+    this.isDelete = isDelete;
   }
 
   /**
@@ -137,5 +162,13 @@ public class Article {
 
   public void setHtmlMaterial(String htmlMaterial) {
     this.htmlMaterial = htmlMaterial;
+  }
+
+  public Integer getIsComment() {
+    return isComment;
+  }
+
+  public void setIsComment(Integer isComment) {
+    this.isComment = isComment;
   }
 }

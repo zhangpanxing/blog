@@ -30,7 +30,8 @@ spring:
                 admin/blog_modify,
                 admin/admin_user_manage,
                 admin/admin_user_pwd_modify,
-                admin/resume_modify
+                admin/resume_modify,
+                admin/wx_open_users_manage
     #####################################
     content-type: text/html
     allow-request-override: true
@@ -55,7 +56,7 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     username: root
     password: zpx1121.
-    url: jdbc:mysql://47.103.20.158:3306/fsblog?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://118.178.178.110:3306/fsblog?useUnicode=true&characterEncoding=utf8
 
     driverClassName: com.mysql.jdbc.Driver
     sql-script-encoding: UTF-8
@@ -71,29 +72,32 @@ spring:
       hibernate:
         ddl-auto: none
 
+http:
+  port: 8080
+
 server:
-  port: 443
+  port: 4433
   max-http-header-size: 8192
   compression:
       min-response-size: 512
       enabled: true
       mime-types: text/html,text/css,text/javascript,application/javascript,image/gif,image/png,image/jpg
-#  ssl:
-#      key-store: classpath:2878067_www.zpxblogs.com.pfx
-#      key-store-password: qHGV5z0z
-#      key-store-type: PKCS12
+  ssl:
+      key-store: classpath:4612993_www.zpxblogs.com.pfx
+      key-store-password: dGRO2JXJ
+      key-store-type: PKCS12
   tomcat:
         maxThreads: 12
         minSpareThreads: 3
         accesslog:
 #          线上环境
-#          directory: /project/logs/app
-          directory: /Users/zpx/Desktop/工作/log/app/
+          directory: /docker/data/logs/app
+#          directory: /Users/zpx/Desktop/工作/log/app/
           pattern: combined
           enabled: true
   session:
     cookie:
-      max-age: 1800
+      max-age: -1
 
 logging:
     config: classpath:log4j2.xml
@@ -103,6 +107,11 @@ mybatis:
     mapper-locations: classpath:mapping/*.xml
 
 file:
-  uploadFolder: /project/temp/
-#  uploadFolder: /Users/wen/Desktop/工作/log/app/img/
+#    线上地址
+  uploadFolder: /docker/data/temp/
+#  本地地址
+#  uploadFolder: /Users/zpx/Desktop/工作/log/app/img/
+wxOpen:
+  appid: wxd494462d567edae8
+  AppSecret: d84f6cb7e4009d62fce444e99e361a75
 

@@ -29,11 +29,19 @@ public class ArticleDataGridView {
 
   private String introduction;
 
+  private Integer isDelete;
+
+//  private String image;
+
+  private Integer isComment;
+
   public ArticleDataGridView(Article article) {
     this.id = article.getId();
     this.title = article.getTitle();
     this.gmtModified = article.getGmtModified();
     this.gmtCreate = article.getGmtCreate();
     this.introduction = article.getIntroduction();
+    this.isComment = article.getIsComment();
+    this.isDelete = article.getIsDelete();
   }
 }

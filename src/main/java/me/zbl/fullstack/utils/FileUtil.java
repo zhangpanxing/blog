@@ -283,7 +283,7 @@ public class FileUtil {
         /**
          * 去掉前缀
          */
-        base64 = StringUtils.substringAfter(base64,",");
+//        base64 = StringUtils.substringAfter(base64,",");
 
         // 对字节数组字符串进行Base64解码并生成图片
         if (base64 == null) // 图像数据为空

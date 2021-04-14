@@ -15,16 +15,29 @@
                     <li class="list-inline-item">
                         <a href="/resume" class="text-white">关于</a>
                     </li>
-                    <li class="list-inline-item">&sdot;</li>
-                    <li class="list-inline-item">
-                        <a href="" target="_blank" class="text-white">Github 项目</a>
-                    </li>
+                    <#--<li class="list-inline-item">&sdot;</li>-->
+                    <#--<li class="list-inline-item">-->
+                        <#--<a href="" target="_blank" class="text-white">Github 项目</a>-->
+                    <#--</li>-->
                 </ul>
                 <p class="text-muted small mb-4 mb-lg-0">&copy; Freedom 2019 My Blog  </p>
-                <p class="text-muted small mb-4 mb-lg-0">赣 ICP 备 19013006 号</p>
+                <a href="https://beian.miit.gov.cn/" class="text-muted small mb-4 mb-lg-0">赣 ICP 备 19013006 号</a>
             </div>
             <div class="col-lg-6 text-center text-lg-right my-auto">
                 <ul class="list-inline mb-0">
+                    <#--友情链接-->
+                    <li title="友情链接" class="list-inline-item mr-3">
+                        <a  target="view_window" href="https://zhangmuyu.cn/" class="text-white">
+                            <i class="fa fa-link fa-2x fa-fw"></i>
+                        </a>
+                    </li>
+                    <img id="id_img_wechat_open" src="/img/wxOpen.png" alt="Wechat" class="img_shadow"
+                         style="display:none;width: 200px;position: absolute;bottom: 50px;right: 0;border-radius: 50%;">
+                    <li title="微信小程序" class="list-inline-item">
+                        <a class="text-white" id="id_a_open">
+                            <i class="fa fa-qrcode fa-2x fa-fw"></i>
+                        </a>
+                    </li>
                 <#-- github -->
                     <li class="list-inline-item mr-3">
                         <a href="http://github.com/zhangpanxing" target="_blank" class="text-white">
@@ -50,6 +63,8 @@
         </div>
     </div>
 </footer>
+<script src="/js/f_footer.js"></script>
+
 <#-- e Footer -->
 
 

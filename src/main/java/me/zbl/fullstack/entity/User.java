@@ -65,6 +65,9 @@ public class User {
   @Column(name = "md_info")
   private String mdInfo;
 
+  @Column(name = "open_id")
+  private String openId;
+
   /**
    * 获取PrimaryKey
    *
@@ -323,5 +326,13 @@ public class User {
    */
   public void setMdInfo(String mdInfo) {
     this.mdInfo = mdInfo == null ? null : mdInfo.trim();
+  }
+
+  public String getOpenId() {
+    return openId;
+  }
+
+  public void setOpenId(String openId) {
+    this.openId = openId;
   }
 }

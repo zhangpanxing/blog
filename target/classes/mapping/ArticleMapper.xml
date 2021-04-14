@@ -12,5 +12,51 @@
     <result column="introduction" jdbcType="LONGVARCHAR" property="introduction" />
     <result column="md_material" jdbcType="LONGVARCHAR" property="mdMaterial" />
     <result column="html_material" jdbcType="LONGVARCHAR" property="htmlMaterial" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+    <result column="is_delete" jdbcType="INTEGER" property="isDelete" />
+    <result column="is_comment" jdbcType="INTEGER" property="isComment" />
+
   </resultMap>
+
+  <select id="getArticleListByTagIdName" resultMap="BaseResultMap">
+    SELECT
+     article.id,title,introduction,article.gmt_create ,
+     article.gmt_modified ,image,article.is_delete ,
+     article.is_comment
+    FROM article
+     JOIN tag_article
+    ON  article.id = tag_article.article_id
+    WHERE article.is_delete = 0
+
+    <if test="null != name and name !='' ">
+     AND article.title LIKE  '%' #{name} '%'
+    </if>
+    <if test="null != tagId and tagId != 0">
+      AND tag_article.tag_id=#{tagId}
+    </if>
+    GROUP BY
+    article.id
+    ORDER by article.gmt_create DESC
+    LIMIT #{offset}, #{pageSize}
+
+
+  </select>
+
+  <select id="getArticleCount" resultType="java.lang.Integer">
+    SELECT
+     COUNT(distinct article.id)
+     FROM article
+    JOIN tag_article
+    ON  article.id = tag_article.article_id
+    WHERE article.is_delete = 0
+
+    <if test="null != name and name !='' ">
+      AND article.title LIKE  '%' #{name} '%'
+    </if>
+    <if test="null != tagId and tagId != 0">
+      AND tag_article.tag_id=#{tagId}
+    </if>
+
+
+  </select>
 </mapper>

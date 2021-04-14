@@ -72,9 +72,40 @@ var TableInit = function () {
                 align: 'center',
                 formatter: formatDateTime,
                 sortable: true
-            }]
+            }, {
+                field: 'isDelete',
+                title: '是否可见',
+                align: 'center',
+                disabled: true,
+                clickToSelect: false,
+                formatter: function(value, item, index) {
+                    if(item.isDelete === 0){
+                        return "<button  onclick='isDelete("+item.id+")' class='label label-success'>可见</button>";
+                    }else{
+                        return "<button  onclick='isDelete("+item.id+")' class='label label-warning'>不可见</button>";
+                    }
+                }
+                },{
+                field: 'isComment',
+                title: '是否允许评论',
+                align: 'center',
+                disabled: false,
+                clickToSelect: false,
+                formatter: function(value, item, index) {
+                    if(value === 0){
+                        return "<button  onclick='isComment("+item.id+")' class='label label-success'>可评论</button>";
+                    }else{
+                        return "<button  onclick='isComment("+item.id+")' class='label label-warning'>不可评论</button>";
+                    }
+                }
+            },
+
+            ]
         });
     };
+
+
+
 
     //得到查询的参数
     oTableInit.queryParams = function (params) {
@@ -116,6 +147,12 @@ var ButtonInit = function () {
 
         $('#id_btn_edit').on('click', function () {
             c_confirm("即将跳转到博客编辑页面，确定继续吗？", modifyBlog);
+        });
+        $('#id_btn_eye-open').on('click', function () {
+            c_confirm("确认要隐藏选中的所有文章吗？", blogsHide);
+        });
+        $('#id_btn_comment').on('click', function () {
+            c_confirm("确认要禁止所有选中的文章的评论点赞吗？", noComment);
         });
     };
 
@@ -172,11 +209,104 @@ function deleteArticleInBulk() {
     });
 }
 
+
+function isDelete(e) {
+    $.ajax({
+
+        url: "/admin/update_is_delete?blogId="+e,
+        success: function (result) {
+            console.log(result)
+            msg("修改成功");
+            flushTable();
+        },
+    })
+}
+function isComment(e) {
+
+    $.ajax({
+
+        url: "/admin/update_is_comment?blogId="+e,
+        success: function (result) {
+            console.log(result)
+            msg("修改成功");
+            flushTable();
+        },
+    })
+}
+
 /**
  * 添加文章
  */
 function addBlog() {
     c_location("/admin/blogadd");
+}
+
+/**
+ * 隐藏文章
+ */
+function blogsHide() {
+    idsArr = [];
+    dataSel = $('#id_table_blog').bootstrapTable('getSelections');
+    if(dataSel.length<1){
+        msg("至少得选一行吧");
+    }
+    for (i = 0; i < dataSel.length; i++) {
+        var tmp = dataSel[i];
+        var id = tmp.id;
+        idsArr.push(id);
+    }
+
+    var dataObj = new Object();
+    dataObj.ids = idsArr;
+
+    // 注意：必须加 contentType: 'application/json'，否则 controller 中无法讲 json 直接转换成对象
+    $.ajax({
+        type: "DELETE",
+        url: "/admin/blog_delete.j",
+        contentType: 'application/json',
+        data: JSON.stringify(dataObj),
+        success: function (result) {
+            msg("完成删除，刚才的文章永远的离你而去了");
+            flushTable();
+        },
+        error:function () {
+            msg("删除失败");
+        }
+    });
+}
+
+/**
+ * 禁止评论点赞
+ */
+function noComment() {
+    idsArr = [];
+    dataSel = $('#id_table_blog').bootstrapTable('getSelections');
+    if(dataSel.length<1){
+        msg("至少得选一行吧");
+    }
+    for (i = 0; i < dataSel.length; i++) {
+        var tmp = dataSel[i];
+        var id = tmp.id;
+        idsArr.push(id);
+    }
+
+    var dataObj = new Object();
+    dataObj.ids = idsArr;
+
+    // 注意：必须加 contentType: 'application/json'，否则 controller 中无法讲 json 直接转换成对象
+    $.ajax({
+        type: "DELETE",
+        url: "/admin/blog_delete.j",
+        contentType: 'application/json',
+        data: JSON.stringify(dataObj),
+        success: function (result) {
+            msg("完成删除，刚才的文章永远的离你而去了");
+            flushTable();
+        },
+        error:function () {
+            msg("删除失败");
+        }
+    });
 }
 
 /**

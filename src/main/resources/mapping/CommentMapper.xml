@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="me.zbl.fullstack.mapper.CommentMapper">
+
+    <resultMap id="BaseResultMap" type="me.zbl.fullstack.entity.Comment" >
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+        <result column="article_id" jdbcType="INTEGER" property="articleId" />
+        <result column="user_id" jdbcType="INTEGER" property="userId" />
+        <result column="type" jdbcType="INTEGER"  property="type" />
+        <result column="content" jdbcType="VARCHAR" property="content" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+                id,
+                gmt_create ,
+                article_id ,
+                user_id ,
+                type,
+                content
+    </sql>
+
+    <insert id="insertComment" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="me.zbl.fullstack.entity.Comment">
+        INSERT INTO comment
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test ='null != gmtCreate'>
+                gmt_create,
+            </if>
+            <if test ='null != articleId'>
+                article_id,
+            </if>
+            <if test ='null != userId'>
+                user_id,
+            </if>
+            <if test ='null != type'>
+                type,
+            </if>
+            <if test ='null != content'>
+                content
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test ='null != gmtCreate'>
+                #{gmtCreate},
+            </if>
+            <if test ='null != articleId'>
+                #{articleId},
+            </if>
+            <if test ='null != userId'>
+                #{userId},
+            </if>
+            <if test ='null != type'>
+                #{type},
+            </if>
+            <if test ='null != content'>
+                #{content}
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="delete" >
+        DELETE FROM comment
+        WHERE id = #{id}
+    </delete>
+
+    <update id="update" parameterType="me.zbl.fullstack.entity.Comment">
+        UPDATE comment
+        <set>
+            <if test ='null != gmtCreate'>gmt_create = #{gmtCreate},</if>
+            <if test ='null != articleId'>article_id = #{articleId},</if>
+            <if test ='null != userId'>user_id = #{userId},</if>
+            <if test ='null != type'>type = #{type},</if>
+            <if test ='null != content'>content = #{content}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+
+    <select id="load" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM comment
+        WHERE id = #{id}
+    </select>
+
+    <select id="pageList" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM comment ORDER by gmt_create DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <select id="pageListCount" resultType="java.lang.Integer">
+        SELECT count(1)
+        FROM comment
+    </select>
+
+    <select id="findComments" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM comment
+        WHERE article_id = #{blogId} ORDER by gmt_create DESC
+
+    </select>
+
+
+    <select id="byBlogPageList" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM comment
+        WHERE
+        <if test ='null != blogId'>article_id = #{blogId} </if>
+        ORDER by gmt_create DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+</mapper>

@@ -1,4 +1,4 @@
-package me.zbl.fullstack.controller;
+package me.zbl.fullstack.controller.admin;
 
 import me.zbl.fullstack.controller.base.BaseController;
 import me.zbl.fullstack.entity.AdminUser;

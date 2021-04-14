@@ -39,18 +39,63 @@ public class PostServiceImpl extends BaseViewTransableService<Article, PostView>
   }
 
   @Override
-  public List<PostView> getPostListByTagId(Integer tagId) {
-    List<Article> articlelist = mPostMapper.getArticleListByTagId(tagId);
+  public List<PostView> getPostListByTagId(Integer tagId,Integer offset, Integer pageSize) {
+    if(offset == null || pageSize == null){
+      offset = 0;
+      pageSize = 30;
+    }
+    List<Article> articlelist = mPostMapper.getArticleListByTagId(tagId,offset,pageSize);
     List<PostView> postViewList = transEntityToView(articlelist);
     return postViewList;
+  }
+
+  @Override
+  public List<PostView> getPostListByTagIdAndByName(String name, Integer tagId, Integer offset, Integer pageSize) {
+    if(offset == null || pageSize == null){
+      offset = 0;
+      pageSize = 30;
+    }
+    List<Article> articlelist = mPostMapper.getArticleListByTagIdName(name,tagId,offset,pageSize);
+    List<PostView> postViewList = transEntityToView(articlelist);
+    return postViewList;
+  }
+
+
+  @Override
+  public List<PostView> getPostListByArticleConditionByPage(ArticleSearchForm form,Integer offset, Integer pageSize) {
+    Article article = new Article();
+    article.setTitle(form.getName());
+
+    List<Article> articleList = mPostMapper.getPostListByArticleConditionByPage(form.getName(),offset,pageSize);
+    return transEntityToView(articleList);
   }
 
   @Override
   public List<PostView> getPostListByArticleCondition(ArticleSearchForm form) {
     Article article = new Article();
     article.setTitle(form.getName());
+
     List<Article> articleList = mPostMapper.getArticleListByCondition(form);
     return transEntityToView(articleList);
+  }
+
+
+  @Override
+  public List<PostView> getPostListByPage(int offset, int pageSize) {
+    List<Article> articleList = mPostMapper.getArticleListPage(offset,pageSize);
+    return transEntityToView(articleList);
+  }
+
+  @Override
+  public PostView getPostView(Integer blogId) {
+    Article article = mPostMapper.getArticle(blogId);
+    PostView postView = new PostView(article);
+    return postView;
+  }
+
+  @Override
+  public Integer getPostCount(String name, Integer tagId) {
+    return mPostMapper.getArticleCount(name,tagId);
   }
 
   @Override

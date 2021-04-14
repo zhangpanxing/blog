@@ -37,14 +37,28 @@ public interface IPostsService {
    *
    * @return 文章
    */
-  List<PostView> getPostListByTagId(Integer tagId);
+  List<PostView> getPostListByTagId(Integer tagId,Integer offset, Integer pageSize);
+
+
+  List<PostView> getPostListByTagIdAndByName(String name,Integer tagId,Integer offset, Integer pageSize);
+
 
   /**
-   * 根据 具体条件筛选文章
+   * 根据 分页 具体条件筛选文章
    *
    * @param form 条件表单
    *
    * @return 文章
    */
+  List<PostView> getPostListByArticleConditionByPage(ArticleSearchForm form,Integer offset,Integer pageSize);
+
   List<PostView> getPostListByArticleCondition(ArticleSearchForm form);
+
+  List<PostView> getPostListByPage(int offset,int pageSize);
+
+  PostView getPostView(Integer blogId);
+
+  Integer getPostCount(String name,Integer tagId);
+
+
 }
