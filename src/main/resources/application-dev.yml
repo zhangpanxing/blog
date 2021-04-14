@@ -55,8 +55,8 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     username: root
-    password: zpx1121.
-    url: jdbc:mysql://118.178.178.110:3306/fsblog?useUnicode=true&characterEncoding=utf8
+    password: 121
+    url: jdbc:mysql://123.123.131/fsblog?useUnicode=true&characterEncoding=utf8
 
     driverClassName: com.mysql.jdbc.Driver
     sql-script-encoding: UTF-8
