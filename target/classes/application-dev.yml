@@ -90,8 +90,7 @@ server:
         maxThreads: 12
         minSpareThreads: 3
         accesslog:
-#          线上环境
-#          directory: /docker/data/logs/app
+#          日志地址
           directory: /Users/zpx/Desktop/工作/log/app/
           pattern: combined
           enabled: true
@@ -107,19 +106,18 @@ mybatis:
     mapper-locations: classpath:mapping/*.xml
 
 file:
-#    线上地址
-#  uploadFolder: /docker/data/temp/
-#  本地地址
+#  图片存放临时地址
   uploadFolder: /Users/zpx/Desktop/工作/log/app/img/
+#小程序配置
 wxOpen:
-    appid: wxd494462d567edae8
-    AppSecret: d84f6cb7e4009d62fce444e99e361a75
-
+    appid: 1234
+    AppSecret: 134324
+#腾讯云OSS存储桶配置
 tengxunyun:
     oss:
-      secretId: AKIDA5mESRjr42pwoQrysa6QK2WlocbLQ55p
-      secretKey: h8KL8gz3sRlpllX4MOAhy2sTpwEQN5f0
-      bucket: zpxblogs-1259581391
-      PathKey: /Blogs/image/
+      secretId: 123
+      secretKey: 1213
+      bucket: 1213
+      PathKey: /1123/132
 
 
